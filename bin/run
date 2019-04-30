@@ -1,13 +1,21 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 require 'sqlite3'
 
-require_relative "../lib/song.rb"
+require_relative "../lib/team.rb"
 require_relative "../config/environment.rb"
 
 
-song = Song.new(name: "Hello", album: "25")
-puts "song name: " + song.name
-puts "song album: " + song.album
-song.save
+team_one = Team.new(name: "Nuggets", city: "Denver", sport: "Basketball")
+puts "team name: " + team_one.name
+puts "team city: " + team_one.city
+puts "team sport: " + team_one.sport
+team_one.save
 
-DB[:conn].execute("SELECT * FROM songs")
+team_two = Team.new(name: "Rockies", city: "Denver", sport: "Baseball")
+puts "team name: " + team_two.name
+puts "team city: " + team_two.city
+puts "team sport: " + team_two.sport
+team_two.save
+
+
+DB[:conn].execute("SELECT * FROM teams")
