@@ -21,10 +21,12 @@ class Song
     column_names.compact
   end
 
+  #creates all the available attributes for the class
   self.column_names.each do |col_name|
     attr_accessor col_name.to_sym
   end
-
+  
+  #sends the new instance's data to the respective attributes based off of previous method
   def initialize(options={})
     options.each do |property, value|
       self.send("#{property}=", value)
